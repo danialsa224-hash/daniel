@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            font-family: sans-serif;
+        }
+        .text {
+            font-size: 3rem;
+            font-weight: bold;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #fff, 0 0 20px #0ff; }
+            to { text-shadow: 0 0 20px #fff, 0 0 30px #f0f; }
+        }
+    </style>
+</head>
+<body>
+    <div class="text">DANIEL GANTENG</div>
+</body>
+</html>
