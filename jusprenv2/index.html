@@ -2,20 +2,31 @@
 <html>
 <head>
     <style>
-        body { background: #000; margin: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; color: #fff; font-family: sans-serif; }
+        body { background: #000; margin: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color: #fff; font-family: sans-serif; }
         canvas { display: block; }
         #handle { position: absolute; bottom: 20px; left: 20px; font-size: 18px; color: #ff69b4; }
+        #playButton { position: absolute; z-index: 10; padding: 15px 30px; font-size: 20px; cursor: pointer; background: #ff69b4; border: none; border-radius: 10px; color: white; }
     </style>
 </head>
 <body>
+    <button id="playButton">Klik Disini</button>
     <div id="handle">@danielllbroo</div>
     
-    <audio id="myAudio" loop autoplay>
+    <audio id="myAudio" loop>
         <source src="https://www.mboxdrive.com/love%20you%20trend.mp3" type="audio/mpeg">
     </audio>
 
     <canvas id="canvas"></canvas>
     <script>
+        const playButton = document.getElementById("playButton");
+        const audio = document.getElementById("myAudio");
+
+        playButton.addEventListener("click", () => {
+            audio.play();
+            playButton.style.display = "none";
+            animate();
+        });
+
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth;
@@ -39,8 +50,6 @@
             }
             setTimeout(() => { requestAnimationFrame(animate); }, 100);
         }
-        animate();
     </script>
 </body>
-</htm
-  l>
+</html>
