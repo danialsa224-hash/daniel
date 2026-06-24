@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-<body style="margin: 0; background-color: black;">
-<canvas id="loveCanvas" width="400" height="400"></canvas>
+<body style="margin: 0; background-color: black; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;">
+<canvas id="loveCanvas" width="360" height="640" style="width: 100%; height: auto; max-width: 400px;"></canvas>
 <script>
 const canvas = document.getElementById('loveCanvas');
 const ctx = canvas.getContext('2d');
-let t = 0;
+let t = 0,25;
 
 function draw() {
     ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, 400, 400);
+    ctx.fillRect(0, 0, 360, 640);
     
     ctx.strokeStyle = 'red';
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 8;
     ctx.beginPath();
     
     for (let i = 0; i < t; i++) {
         let angle = i * 0.1;
-        let x = 200 + 16 * Math.pow(Math.sin(angle), 3) * 10;
-        let y = 200 - (13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle)) * 10;
+        let x = 180 + 16 * Math.pow(Math.sin(angle), 3) * 12;
+        let y = 300 - (13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle)) * 12;
         if (i === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
     }
     ctx.stroke();
 
     ctx.fillStyle = 'deeppink';
-    ctx.font = '16px Arial';
-    ctx.fillText('@danielllbroo', 10, 390);
+    ctx.font = '20px Arial';
+    ctx.fillText('@danielllbroo', 20, 600);
 
     if (t < 100) t += 1;
     requestAnimationFrame(draw);
@@ -34,5 +34,5 @@ function draw() {
 draw();
 </script>
 </body>
-</htm
-  l>
+</ht
+    ml>
