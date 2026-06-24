@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body style="margin: 0; background-color: black;">
+<canvas id="loveCanvas" width="400" height="400"></canvas>
+<script>
+const canvas = document.getElementById('loveCanvas');
+const ctx = canvas.getContext('2d');
+let t = 0;
+
+function draw() {
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, 400, 400);
+    
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    
+    for (let i = 0; i < t; i++) {
+        let angle = i * 0.1;
+        let x = 200 + 16 * Math.pow(Math.sin(angle), 3) * 10;
+        let y = 200 - (13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle)) * 10;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    ctx.fillStyle = 'deeppink';
+    ctx.font = '16px Arial';
+    ctx.fillText('@danielllbroo', 10, 390);
+
+    if (t < 100) t += 1;
+    requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</htm
+  l>
